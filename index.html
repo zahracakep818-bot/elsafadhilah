@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Mahasiswa Baru</title>
+    <link rel="stylesheet" href="css/stail.css">
+</head>
+<body>
+<div class="container">
+    <form id="formMahasiswa" novalidate enctype="multipart/form-data">
+        <h2>Form Pendaftaran Mahasiswa Baru</h2>
+        <div class="form-group">
+            <label for="nim">NIM (Nomor Induk Mahasiswa)</label>
+            <input type="text" id="nim" name="nim" class="form-control" placeholder="Masukkan 8 digit angka NIM Anda...">
+            <small id="errorNim" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama lengkap minimal 5 karakter...">
+            <small id="errorNama" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Universitas</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Contoh format email: mhs@plb.ac.id...">
+            <small id="errorEmail" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+            <label for="hp">Nomor HP</label>
+            <input type="text" id="hp" name="hp" class="form-control" placeholder="Masukkan nomor HP minimal 10 digit angka...">
+            <small id="errorHp" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+            <label>Jenis Kelamin</label>
+            <div class="radio-group">
+                <label><input type="radio" name="jk" value="Laki-laki"> Laki-laki</label>
+                <label><input type="radio" name="jk" value="Perempuan"> Perempuan</label>
+            </div>
+            <small id="errorJk" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+            <label for="prodi">Program Studi</label>
+            <select id="prodi" name="prodi" class="form-control">
+                <option value="" disabled selected>-- Silakan Pilih Program Studi Anda --</option>
+                <option value="Manajemen Informatika">Manajemen Informatika</option>
+                <option value="Komputerisasi Akuntansi">Komputerisasi Akuntansi</option>
+                <option value="Teknik Komputer">Teknik Komputer</option>
+            </select>
+            <small id="errorProdi" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+            <label for="alamat">Alamat Lengkap</label>
+            <textarea id="alamat" name="alamat" class="form-control" rows="3" placeholder="Masukkan alamat lengkap rumah minimal 10 karakter..."></textarea>
+            <small id="errorAlamat" class="text-danger"></small>
+        </div>
+        <div class="form-group">
+            <div class="upload-wrapper">
+                <div class="upload-box">
+                    <label style="margin-bottom: 15px; display: block;">Pas Foto (JPG/PNG maksimal 2MB)</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                </div>            
+                <div class="preview-box">
+                    <img id="previewFoto" src="" alt="Preview Pas Foto">
+                </div>
+            </div>
+            <small id="errorFoto" class="text-danger"></small>
+        </div>
+        <button type="submit" class="btn-submit">Daftar Sekarang</button>
+        <button type="reset" class="btn-reset" onclick="$('#previewFoto').hide(); $('.form-control').removeClass('is-invalid'); $('.upload-box, .preview-box').removeClass('is-invalid'); $('.text-danger').html('');">Reset</button>
+        
+        <div id="hasil" style="text-align: center; margin-top: 15px;"></div>
+    </form>
+    <div id="cardData"></div>
+</div>
+
+<script src="js/jquery-4.0.0.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
